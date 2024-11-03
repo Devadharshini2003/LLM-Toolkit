@@ -3,8 +3,8 @@ from transformers import pipeline
 from newspaper import Article
 import validators
 
-# Initialize summarization pipeline with a specific model
-summarizer = pipeline("summarization", model="facebook/bart-large-cnn")
+
+summarizer = pipeline("summarization", model="facebook/bart-large-cnn", framework="pt")
 
 def main():
     st.title("URL Summarization Tool")
