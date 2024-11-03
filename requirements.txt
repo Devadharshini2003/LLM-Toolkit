@@ -4,7 +4,6 @@ newspaper3k
 validators
 pymongo
 python-dotenv
-os
 google-generativeai
 hashlib
 streamlit-chat
