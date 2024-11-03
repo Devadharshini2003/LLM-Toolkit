@@ -180,8 +180,8 @@ if st.session_state["user"]:
         csvchat.main()
 
     elif module == "Link Summarizer":
-        import summ_link
-        summ_link.main()
+        import link_summ
+        link_summ.main()
 
     elif module == "Text Summarizer":
         import summ_para
