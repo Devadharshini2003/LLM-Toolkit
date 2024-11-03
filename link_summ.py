@@ -24,7 +24,7 @@ def main():
                     article_text = article.text
 
                     # Summarize the article text
-                    summary = summarizer(article_text, max_length=150, min_length=30, do_sample=False)[0]["summary_text"]
+                    summary = summarizer(article_text, max_length=500, min_length=330, do_sample=False)[0]["summary_text"]
 
                     # Display results
                     st.subheader("Article Summary:")
