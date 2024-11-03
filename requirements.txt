@@ -7,3 +7,4 @@ python-dotenv
 google-generativeai
 streamlit-chat
 lxml
+lxml_html_clean
