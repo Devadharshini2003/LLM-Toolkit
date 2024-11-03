@@ -5,5 +5,4 @@ validators
 pymongo
 python-dotenv
 google-generativeai
-hashlib
 streamlit-chat
