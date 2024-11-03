@@ -3,3 +3,7 @@ transformers
 newspaper3k
 validators
 pymongo
+dotenv
+os
+google-generativeai
+hashlib
