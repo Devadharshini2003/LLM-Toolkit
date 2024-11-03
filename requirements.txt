@@ -3,7 +3,8 @@ transformers
 newspaper3k
 validators
 pymongo
-dotenv
+python-dotenv
 os
 google-generativeai
 hashlib
+streamlit-chat
