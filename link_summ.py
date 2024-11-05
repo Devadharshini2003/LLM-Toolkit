@@ -25,12 +25,22 @@ def main():
 
                     # Check if article_text is not empty
                     if article_text.strip():
+                        # Limit text length for summarization
+                        max_input_length = 1024  # Adjust based on model limits
+                        article_text = article_text[:max_input_length]
+                        
                         # Summarize the article text
-                        summary = summarizer(article_text, max_length=150, min_length=30, do_sample=False)[0]["summary_text"]
-
-                        # Display results
-                        st.subheader("Article Summary:")
-                        st.write(summary)
+                        summary_result = summarizer(
+                            article_text, max_length=150, min_length=30, do_sample=False
+                        )
+                        
+                        # Check if summarizer returned any output
+                        if summary_result and "summary_text" in summary_result[0]:
+                            summary = summary_result[0]["summary_text"]
+                            st.subheader("Article Summary:")
+                            st.write(summary)
+                        else:
+                            st.error("The summarization model did not return any summary.")
                     else:
                         st.error("Failed to extract content from the URL. Please try a different URL.")
                 except Exception as e:
