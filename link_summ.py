@@ -3,7 +3,7 @@ from transformers import pipeline
 from newspaper import Article
 import validators
 
-
+# Initialize the summarizer pipeline
 summarizer = pipeline("summarization", model="facebook/bart-large-cnn", framework="pt")
 
 def main():
@@ -23,12 +23,16 @@ def main():
                     article.parse()
                     article_text = article.text
 
-                    # Summarize the article text
-                    summary = summarizer(article_text, max_length=150, min_length=30, do_sample=False)[0]["summary_text"]
+                    # Check if article_text is not empty
+                    if article_text.strip():
+                        # Summarize the article text
+                        summary = summarizer(article_text, max_length=150, min_length=30, do_sample=False)[0]["summary_text"]
 
-                    # Display results
-                    st.subheader("Article Summary:")
-                    st.write(summary)
+                        # Display results
+                        st.subheader("Article Summary:")
+                        st.write(summary)
+                    else:
+                        st.error("Failed to extract content from the URL. Please try a different URL.")
                 except Exception as e:
                     st.error(f"An error occurred: {e}")
         else:
